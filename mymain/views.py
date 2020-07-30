@@ -74,7 +74,7 @@ def search(request):
         print(only_word)
 
         # 生成对象
-        font_path = "C:\Windows\Fonts\STKAITI.TTF"
+        font_path = os.path.join(jpgdir, 'STKAITI.TTF')
         text = " ".join(only_word[0:200])
         wc = WordCloud(font_path=font_path, width=800, height=600, mode='RGBA', background_color=None).generate(
             text)
