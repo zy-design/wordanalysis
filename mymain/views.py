@@ -60,7 +60,7 @@ def search(request):
         row = 1
         only_word = []
         for i in range(len(list_words)):
-            print(list_words[i][0])
+            # print(list_words[i][0])
             only_word.append(list_words[i][0])
             worksheet.write(row, 0, list_words[i][0])
             worksheet.write(row, 1, list_words[i][1])
@@ -71,7 +71,7 @@ def search(request):
         from wordcloud import WordCloud
         import matplotlib.pyplot as plt
 
-        print(only_word)
+        # print(only_word)
 
         # 生成对象
         font_path = os.path.join(jpgdir, 'STKAITI.TTF')
@@ -121,7 +121,7 @@ def download_file(request):
     name = 'WordAnalysis.xls'
     baseDir = os.path.dirname(os.path.abspath(__name__))  # 获取运行路径
     file_name = os.path.join(baseDir, name)  # 获取文件路径
-    print(file_name)
+    # print(file_name)
     file = open(file_name, 'rb')
     response = FileResponse(file)
     response['Content-Type'] = 'application/octet-stream'
@@ -133,7 +133,7 @@ def download_image(request):
     name = 'wordcloud.png'
     baseDir = os.path.dirname(os.path.abspath(__name__))  # 获取运行路径
     file_name = os.path.join(baseDir, name)  # 获取文件路径
-    print(file_name)
+    # print(file_name)
     file = open(file_name, 'rb')
     response = FileResponse(file)
     response['Content-Type'] = 'application/octet-stream'

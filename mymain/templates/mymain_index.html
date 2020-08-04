@@ -9,18 +9,22 @@
 </head>
 <body>
 <style>
-    div{padding: 5px 2% 2px 2%;}
+    div {
+        padding: 5px 2% 2px 2%;
+    }
+
     /*** 奇数行颜色设置 ***/
-  table.dataTable tbody tr.stripe1 {
-    background-color: #f9f9f9;
-  }
-  /*** 偶数行颜色设置 ***/
-  table.dataTable tbody tr.stripe2 {
-    background-color: #ffffff;
-  }
+    table.dataTable tbody tr.stripe1 {
+        background-color: #f9f9f9;
+    }
+
+    /*** 偶数行颜色设置 ***/
+    table.dataTable tbody tr.stripe2 {
+        background-color: #ffffff;
+    }
 </style>
 <div>
-    <form action="mymain/search" method="post" enctype="multipart/form-data">
+    <form action="/mymain/search" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="word_file">
         <input type="submit" value="提交"><span style="color:pink;"><small>上传txt文件啦</small></span>
@@ -29,7 +33,7 @@
 <div class="main">
     <!--    <button class="a1">生成文件喽</button>-->
     <a href="mymain/download_file" style="color:blue;">下载excel</a>&nbsp;&nbsp;
-     <a href="mymain/download_image" style="color:blue;">下载词云</a>&nbsp;&nbsp;
+    <a href="mymain/download_image" style="color:blue;">下载词云</a>&nbsp;&nbsp;
     <a href="/" style="color:blue;">刷新页面</a>
     <table border="0" cellspacing="0" id="table_id" width="60%">
         <thead>
@@ -51,32 +55,32 @@
     </table>
 </div>
 <div>
-<!--    <img src="wordcloud.png" width="80%" height="60%" />-->
+    <!--    <img src="wordcloud.png" width="80%" height="60%" />-->
 </div>
 
 </body>
 <script type="">
-$(document).ready(function () {
-     $('#table_id').DataTable({
-     "oLanguage": { //国际化配置
-                "sProcessing" : "正在获取数据，请稍后...",
-                "sLengthMenu" : "显示 _MENU_ 条",
-                "sZeroRecords" : "没有您要搜索的内容",
-                "sInfo" : "从 _START_ 到  _END_ 条记录 总记录数为 _TOTAL_ 条",
-                "sInfoEmpty" : "记录数为0",
-                "sInfoFiltered" : "(全部记录数 _MAX_ 条)",
-                "sInfoPostFix" : "",
-                "sSearch" : "搜索",
-                "sUrl" : "",
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            "oLanguage": { //国际化配置
+                "sProcessing": "正在获取数据，请稍后...",
+                "sLengthMenu": "显示 _MENU_ 条",
+                "sZeroRecords": "没有您要搜索的内容",
+                "sInfo": "从 _START_ 到  _END_ 条记录 总记录数为 _TOTAL_ 条",
+                "sInfoEmpty": "记录数为0",
+                "sInfoFiltered": "(全部记录数 _MAX_ 条)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索",
+                "sUrl": "",
                 "oPaginate": {
-                    "sFirst" : "第一页",
-                    "sPrevious" : "上一页",
-                    "sNext" : "下一页",
-                    "sLast" : "最后一页"
+                    "sFirst": "第一页",
+                    "sPrevious": "上一页",
+                    "sNext": "下一页",
+                    "sLast": "最后一页"
                 }
             },
-      "stripeClasses": ['stripe1', 'stripe2'],
-     });
+            "stripeClasses": ['stripe1', 'stripe2'],
+        });
     });
 <!-- var result = {{ word|safe }};-->
 <!-- var ary = '';-->
