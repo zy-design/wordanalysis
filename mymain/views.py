@@ -65,7 +65,7 @@ def search(request):
             worksheet.write(row, 0, list_words[i][0])
             worksheet.write(row, 1, list_words[i][1])
             row = row + 1
-        workbook.save('WordAnalysis.xls')
+        workbook.save(os.path.join(jpgdir, 'WordAnalysis.xls'))
 
         # 绘制词云
         from wordcloud import WordCloud
@@ -85,7 +85,7 @@ def search(request):
         # plt.show()
 
         # 保存到文件
-        wc.to_file('wordcloud.png')  # 生成图像是透明的
+        wc.to_file(os.path.join(jpgdir, 'wordcloud.png'))  # 生成图像是透明的
 
         # print(3333)
         # print(list_words)
@@ -120,7 +120,8 @@ def download(request):
 def download_file(request):
     name = 'WordAnalysis.xls'
     baseDir = os.path.dirname(os.path.abspath(__name__))  # 获取运行路径
-    file_name = os.path.join(baseDir, name)  # 获取文件路径
+    jpgdir = os.path.join(baseDir, 'media')
+    file_name = os.path.join(jpgdir, name)  # 获取文件路径
     # print(file_name)
     file = open(file_name, 'rb')
     response = FileResponse(file)
@@ -132,7 +133,8 @@ def download_file(request):
 def download_image(request):
     name = 'wordcloud.png'
     baseDir = os.path.dirname(os.path.abspath(__name__))  # 获取运行路径
-    file_name = os.path.join(baseDir, name)  # 获取文件路径
+    jpgdir = os.path.join(baseDir, 'media')
+    file_name = os.path.join(jpgdir, name)  # 获取文件路径
     # print(file_name)
     file = open(file_name, 'rb')
     response = FileResponse(file)

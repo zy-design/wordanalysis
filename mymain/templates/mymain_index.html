@@ -33,7 +33,7 @@
 <div class="main">
     <!--    <button class="a1">生成文件喽</button>-->
     <a href="mymain/download_file" style="color:blue;">下载excel</a>&nbsp;&nbsp;
-    <a href="mymain/download_image" style="color:blue;">下载词云</a>&nbsp;&nbsp;
+
     <a href="/" style="color:blue;">刷新页面</a>
     <table border="0" cellspacing="0" id="table_id" width="60%">
         <thead>
@@ -55,7 +55,9 @@
     </table>
 </div>
 <div>
-    <!--    <img src="wordcloud.png" width="80%" height="60%" />-->
+    <lable><span style="font-weight: bold;">词云：</span></lable>&nbsp;&nbsp;
+    <a href="mymain/download_image" style="color:blue;">下载词云</a><br>
+    <img src="media/wordcloud.png"/>
 </div>
 
 </body>
@@ -92,11 +94,11 @@
 <!-- $.ajax({-->
 <!--            type: "POST",-->
 <!--            async:true,-->
-<!--            dataType:"json",-->
-<!--            url: "download/",    //后台处理函数的url和数据-->
-<!--            data:{"result": JSON.stringify(ary), "csrfmiddlewaretoken": csrfToken},-->
-<!--            success: function (result) {  //获取后台处理后传过来的result-->
-<!--            console.log(result)-->
+    <!--            dataType:"json",-->
+    <!--            url: "download/",    后台处理函数的url和数据-->
+    <!--            data:{"result": JSON.stringify(ary), "csrfmiddlewaretoken": csrfToken},-->
+    <!--            success: function (result) {  获取后台处理后传过来的result-->
+    <!--            console.log(result)-->
 <!--            alert(result);-->
 <!--            },-->
 <!--        });-->

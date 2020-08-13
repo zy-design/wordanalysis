@@ -15,18 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import include, url
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 from mymain import views as main_views
+from django.views.static import serve
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('hello/', views.hello),
     # url('mymain/', include('mymain.urls')),
-    url(r'^$',  main_views.index),
+    url(r'^$', main_views.index),
     # url('mymain/mymain_index.html', main_views.index),
     url('mymain/search', main_views.search),
     url('mymain/download_file', main_views.download_file),
     url('mymain/download_image', main_views.download_image),
     url('mymain/download', main_views.download),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 ]
